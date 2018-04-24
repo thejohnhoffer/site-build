@@ -38,6 +38,17 @@ This will run a server at http://localhost:9000/.
 
 ... will build the docs into the local build folder.
 
+
+    grunt md
+
+... will build markdown docs
+
+
+    gem install mdless
+    mdless --no-color --no-pager --list build/doc.md > build/doc_index.txt
+
+... will index the markdown docs
+
 ## Publishing
 
 To publish, run:

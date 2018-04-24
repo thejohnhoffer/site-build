@@ -4,6 +4,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-connect");
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks("grunt-contrib-clean");
+    grunt.loadNpmTasks('grunt-jsdoc-to-markdown');
     grunt.loadNpmTasks('grunt-jsdoc');
 
     // ----------
@@ -67,12 +68,18 @@ module.exports = function(grunt) {
                     buildRoot + "*",
                     "!" + buildRoot + "example-images",
                     "!" + buildRoot + "openseadragonizer",
+                    "!" + buildRoot + "doc.md",
                     "!" + buildRoot + "docs"
                 ]
             },
             doc: {
                 src: [
                     buildRoot + "docs/"
+                ]
+            },
+            md: {
+                src: [
+                    buildRoot + "doc.md/"
                 ]
             },
             release: {
@@ -103,12 +110,18 @@ module.exports = function(grunt) {
             files: [ "Gruntfile.js", "www/*", "css/*", "built-openseadragon/**"],
             tasks: ["build"]
         },
-        jsdoc : {
+        jsdoc: {
             src: [builtSourceUnMinified, 'doc-home.md'],
             options: {
                 destination: buildRoot + 'docs',
                 configure: 'doc-conf.json',
                 private: false
+            }
+        },
+        jsdoc2md: {
+            oneOutputFile: {
+              src: builtSourceUnMinified,
+              dest: buildRoot + 'doc.md'
             }
         }
     });
@@ -197,6 +210,7 @@ module.exports = function(grunt) {
     // Doc task.
     // Cleans the doc files out of the build folder and builds new ones.
     grunt.registerTask("doc", ["clean:doc", "jsdoc"]);
+    grunt.registerTask("md", ["clean:md", "jsdoc2md"]);
 
     // ----------
     // Publish task.

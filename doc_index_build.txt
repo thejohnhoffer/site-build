@@ -1,0 +1,858 @@
+
+
+1: OpenSeadragon : object
+2: ..- OpenSeadragon.EventSource
+3: ....+ eventSource.addOnceHandler(eventName, handler, [userData], [times])
+4: ....+ eventSource.addHandler(eventName, handler, [userData])
+5: ....+ eventSource.removeHandler(eventName, handler)
+6: ....+ eventSource.removeAllHandlers(eventName)
+7: ....+ eventSource.getHandler(eventName)
+8: ....+ eventSource.raiseEvent(eventName, eventArgs)
+9: ..- OpenSeadragon.MouseTracker
+10: ....+ new MouseTracker(options)
+11: ....+ mouseTracker.element : Element
+12: ....+ mouseTracker.clickTimeThreshold : Number
+13: ....+ mouseTracker.clickDistThreshold : Number
+14: ....+ mouseTracker.dblClickTimeThreshold : Number
+15: ....+ mouseTracker.clickDistThreshold : Number
+16: ....+ mouseTracker.destroy()
+17: ....+ ~~mouseTracker.isTracking() ⇒ Boolean~~
+18: ....+ mouseTracker.setTracking(track) ⇒ [MouseTracker](#OpenSeadragon.MouseTracker)
+19: ....+ mouseTracker.getActivePointersListsExceptType(type) ⇒
+[Array.&lt;GesturePointList&gt;](#OpenSeadragon.MouseTracker.GesturePointList)
+20: ....+ mouseTracker.getActivePointersListByType(type) ⇒
+[GesturePointList](#OpenSeadragon.MouseTracker.GesturePointList)
+21: ....+ mouseTracker.getActivePointerCount() ⇒ Number
+22: ....+ mouseTracker.enterHandler(event)
+23: ....+ mouseTracker.exitHandler(event)
+24: ....+ mouseTracker.pressHandler(event)
+25: ....+ mouseTracker.nonPrimaryPressHandler(event)
+26: ....+ mouseTracker.releaseHandler(event)
+27: ....+ mouseTracker.nonPrimaryReleaseHandler(event)
+28: ....+ mouseTracker.moveHandler(event)
+29: ....+ mouseTracker.scrollHandler(event)
+30: ....+ mouseTracker.clickHandler(event)
+31: ....+ mouseTracker.dblClickHandler(event)
+32: ....+ mouseTracker.dragHandler(event)
+33: ....+ mouseTracker.dragEndHandler(event)
+34: ....+ mouseTracker.pinchHandler(event)
+35: ....+ mouseTracker.stopHandler(event)
+36: ....+ mouseTracker.keyDownHandler(event)
+37: ....+ mouseTracker.keyUpHandler(event)
+38: ....+ mouseTracker.keyHandler(event)
+39: ....+ mouseTracker.focusHandler(event)
+40: ....+ mouseTracker.blurHandler(event)
+41: ....+ MouseTracker.GesturePointList
+42: ......* new GesturePointList(type)
+43: ......* gesturePointList.type : String
+44: ......* gesturePointList.buttons : Number
+45: ......* gesturePointList.contacts : Number
+46: ......* gesturePointList.clicks : Number
+47: ......* gesturePointList.captureCount : Number
+48: ......* gesturePointList.getLength() ⇒ Number
+49: ......* gesturePointList.asArray() ⇒
+[Array.&lt;GesturePoint&gt;](#OpenSeadragon.MouseTracker.GesturePoint)
+50: ......* gesturePointList.add(gesturePoint) ⇒ Number
+51: ......* gesturePointList.removeById(id) ⇒ Number
+52: ......* gesturePointList.getByIndex(index) ⇒
+[GesturePoint](#OpenSeadragon.MouseTracker.GesturePoint) \| null
+53: ......* gesturePointList.getById(id) ⇒
+[GesturePoint](#OpenSeadragon.MouseTracker.GesturePoint) \| null
+54: ......* gesturePointList.getPrimary() ⇒
+[GesturePoint](#OpenSeadragon.MouseTracker.GesturePoint) \| null
+55: ......* gesturePointList.addContact()
+56: ......* gesturePointList.removeContact()
+57: ....+ MouseTracker.GesturePoint : Object
+58: ..- OpenSeadragon.Control
+59: ....+ new Control(element, options, container)
+60: ....+ control.autoFade : Boolean
+61: ....+ control.element : Element
+62: ....+ control.anchor : [ControlAnchor](#OpenSeadragon.ControlAnchor)
+63: ....+ control.container : Element
+64: ....+ control.wrapper : Element
+65: ....+ control.destroy()
+66: ....+ control.isVisible() ⇒ Boolean
+67: ....+ control.setVisible(visible)
+68: ....+ control.setOpacity(opactiy)
+69: ..- OpenSeadragon.ControlDock
+70: ....+ controlDock.addControl()
+71: ....+ controlDock.removeControl() ⇒ [ControlDock](#OpenSeadragon.ControlDock)
+72: ....+ controlDock.clearControls() ⇒ [ControlDock](#OpenSeadragon.ControlDock)
+73: ....+ controlDock.areControlsEnabled() ⇒ Boolean
+74: ....+ controlDock.setControlsEnabled() ⇒ [ControlDock](#OpenSeadragon.ControlDock)
+75: ..- OpenSeadragon.Viewer ⇐ [EventSource](#OpenSeadragon.EventSource)
+76: ....+ new Viewer(options)
+77: ....+ viewer.initialPage : Number
+78: ....+ viewer.element : Element
+79: ....+ viewer.container : Element
+80: ....+ viewer.canvas : Element
+81: ....+ viewer.drawer : [Drawer](#OpenSeadragon.Drawer)
+82: ....+ viewer.viewport : [Viewport](#OpenSeadragon.Viewport)
+83: ....+ viewer.navigator : [Navigator](#OpenSeadragon.Navigator)
+84: ....+ viewer.isOpen() ⇒ Boolean
+85: ....+ viewer.open(tileSources, initialPage) ⇒ [Viewer](#OpenSeadragon.Viewer)
+86: ....+ viewer.close() ⇒ [Viewer](#OpenSeadragon.Viewer)
+87: ....+ viewer.destroy()
+88: ....+ viewer.isMouseNavEnabled() ⇒ Boolean
+89: ....+ viewer.setMouseNavEnabled(enabled) ⇒ [Viewer](#OpenSeadragon.Viewer)
+90: ....+ viewer.areControlsEnabled() ⇒ Boolean
+91: ....+ viewer.setControlsEnabled(true) ⇒ [Viewer](#OpenSeadragon.Viewer)
+92: ....+ viewer.setDebugMode(true)
+93: ....+ viewer.isFullPage() ⇒ Boolean
+94: ....+ viewer.setFullPage(fullPage) ⇒ [Viewer](#OpenSeadragon.Viewer)
+95: ....+ viewer.setFullScreen(fullScreen) ⇒ [Viewer](#OpenSeadragon.Viewer)
+96: ....+ viewer.isVisible() ⇒ Boolean
+97: ....+ viewer.setVisible(visible) ⇒ [Viewer](#OpenSeadragon.Viewer)
+98: ....+ viewer.addTiledImage(options)
+99: ....+ viewer.addSimpleImage(options)
+100: ....+ viewer.forceRedraw() ⇒ [Viewer](#OpenSeadragon.Viewer)
+101: ....+ viewer.bindSequenceControls() ⇒ [Viewer](#OpenSeadragon.Viewer)
+102: ....+ viewer.bindStandardControls() ⇒ [Viewer](#OpenSeadragon.Viewer)
+103: ....+ viewer.currentPage() ⇒ Number
+104: ....+ viewer.goToPage() ⇒ [Viewer](#OpenSeadragon.Viewer)
+105: ....+ viewer.addOverlay(element, location, placement, onDraw) ⇒
+[Viewer](#OpenSeadragon.Viewer)
+106: ....+ viewer.updateOverlay(element, location, placement) ⇒
+[Viewer](#OpenSeadragon.Viewer)
+107: ....+ viewer.removeOverlay(element) ⇒ [Viewer](#OpenSeadragon.Viewer)
+108: ....+ viewer.clearOverlays() ⇒ [Viewer](#OpenSeadragon.Viewer)
+109: ....+ viewer.getOverlayById(element) ⇒ [Overlay](#OpenSeadragon.Overlay)
+110: ....+ viewer.gestureSettingsByDeviceType(type) ⇒
+[GestureSettings](#OpenSeadragon.GestureSettings)
+111: ....+ viewer._cancelPendingImages()
+112: ....+ viewer.removeReferenceStrip()
+113: ....+ viewer.addReferenceStrip()
+114: ....+ viewer.addOnceHandler(eventName, handler, [userData], [times])
+115: ....+ viewer.addHandler(eventName, handler, [userData])
+116: ....+ viewer.removeHandler(eventName, handler)
+117: ....+ viewer.removeAllHandlers(eventName)
+118: ....+ viewer.getHandler(eventName)
+119: ....+ viewer.raiseEvent(eventName, eventArgs)
+120: ....+ viewer.addControl()
+121: ....+ viewer.removeControl() ⇒ [ControlDock](#OpenSeadragon.ControlDock)
+122: ....+ viewer.clearControls() ⇒ [ControlDock](#OpenSeadragon.ControlDock)
+123: ....+ "open"
+124: ....+ "open-failed"
+125: ....+ "close"
+126: ....+ "mouse-enabled"
+127: ....+ "controls-enabled"
+128: ....+ "pre-full-page"
+129: ....+ "full-page"
+130: ....+ "pre-full-screen"
+131: ....+ "full-screen"
+132: ....+ "visible"
+133: ....+ "add-item-failed"
+134: ....+ "page"
+135: ....+ "add-overlay"
+136: ....+ "update-overlay"
+137: ....+ "remove-overlay"
+138: ....+ "clear-overlay"
+139: ....+ "canvas-click"
+140: ....+ "canvas-double-click"
+141: ....+ "canvas-drag"
+142: ....+ "canvas-drag-end"
+143: ....+ "canvas-enter"
+144: ....+ "canvas-exit"
+145: ....+ "canvas-press"
+146: ....+ "canvas-release"
+147: ....+ "canvas-nonprimary-press"
+148: ....+ "canvas-nonprimary-release"
+149: ....+ "canvas-pinch"
+150: ....+ "canvas-scroll"
+151: ....+ "container-enter"
+152: ....+ "container-exit"
+153: ....+ "viewport-change"
+154: ....+ "animation-start"
+155: ....+ "animation"
+156: ....+ "animation-finish"
+157: ....+ "update-viewport"
+158: ....+ "navigator-scroll"
+159: ....+ "reset-size"
+160: ....+ "home"
+161: ....+ "constrain"
+162: ....+ "pan"
+163: ....+ "zoom"
+164: ....+ "rotate"
+165: ....+ "resize"
+166: ....+ "tile-drawing"
+167: ....+ "update-level"
+168: ....+ "update-tile"
+169: ....+ "tile-load-failed"
+170: ....+ "tile-loaded"
+171: ....+ "tile-drawn"
+172: ....+ "tile-unloaded"
+173: ..- OpenSeadragon.Navigator ⇐ [Viewer](#OpenSeadragon.Viewer)
+174: ....+ new Navigator(options)
+175: ....+ navigator.initialPage : Number
+176: ....+ navigator.element : Element
+177: ....+ navigator.container : Element
+178: ....+ navigator.canvas : Element
+179: ....+ navigator.drawer : [Drawer](#OpenSeadragon.Drawer)
+180: ....+ navigator.viewport : [Viewport](#OpenSeadragon.Viewport)
+181: ....+ navigator.navigator : [Navigator](#OpenSeadragon.Navigator)
+182: ....+ navigator.updateSize()
+183: ....+ navigator.update(The)
+184: ....+ navigator.isOpen() ⇒ Boolean
+185: ....+ navigator.open(tileSources, initialPage) ⇒ [Viewer](#OpenSeadragon.Viewer)
+186: ....+ navigator.close() ⇒ [Viewer](#OpenSeadragon.Viewer)
+187: ....+ navigator.destroy()
+188: ....+ navigator.isMouseNavEnabled() ⇒ Boolean
+189: ....+ navigator.setMouseNavEnabled(enabled) ⇒ [Viewer](#OpenSeadragon.Viewer)
+190: ....+ navigator.areControlsEnabled() ⇒ Boolean
+191: ....+ navigator.setControlsEnabled(true) ⇒ [Viewer](#OpenSeadragon.Viewer)
+192: ....+ navigator.setDebugMode(true)
+193: ....+ navigator.isFullPage() ⇒ Boolean
+194: ....+ navigator.setFullPage(fullPage) ⇒ [Viewer](#OpenSeadragon.Viewer)
+195: ....+ navigator.setFullScreen(fullScreen) ⇒ [Viewer](#OpenSeadragon.Viewer)
+196: ....+ navigator.isVisible() ⇒ Boolean
+197: ....+ navigator.setVisible(visible) ⇒ [Viewer](#OpenSeadragon.Viewer)
+198: ....+ navigator.addTiledImage(options)
+199: ....+ navigator.addSimpleImage(options)
+200: ....+ navigator.forceRedraw() ⇒ [Viewer](#OpenSeadragon.Viewer)
+201: ....+ navigator.bindSequenceControls() ⇒ [Viewer](#OpenSeadragon.Viewer)
+202: ....+ navigator.bindStandardControls() ⇒ [Viewer](#OpenSeadragon.Viewer)
+203: ....+ navigator.currentPage() ⇒ Number
+204: ....+ navigator.goToPage() ⇒ [Viewer](#OpenSeadragon.Viewer)
+205: ....+ navigator.addOverlay(element, location, placement, onDraw) ⇒
+[Viewer](#OpenSeadragon.Viewer)
+206: ....+ navigator.updateOverlay(element, location, placement) ⇒
+[Viewer](#OpenSeadragon.Viewer)
+207: ....+ navigator.removeOverlay(element) ⇒ [Viewer](#OpenSeadragon.Viewer)
+208: ....+ navigator.clearOverlays() ⇒ [Viewer](#OpenSeadragon.Viewer)
+209: ....+ navigator.getOverlayById(element) ⇒ [Overlay](#OpenSeadragon.Overlay)
+210: ....+ navigator.gestureSettingsByDeviceType(type) ⇒
+[GestureSettings](#OpenSeadragon.GestureSettings)
+211: ....+ navigator._cancelPendingImages()
+212: ....+ navigator.removeReferenceStrip()
+213: ....+ navigator.addReferenceStrip()
+214: ....+ navigator.addOnceHandler(eventName, handler, [userData], [times])
+215: ....+ navigator.addHandler(eventName, handler, [userData])
+216: ....+ navigator.removeHandler(eventName, handler)
+217: ....+ navigator.removeAllHandlers(eventName)
+218: ....+ navigator.getHandler(eventName)
+219: ....+ navigator.raiseEvent(eventName, eventArgs)
+220: ....+ navigator.addControl()
+221: ....+ navigator.removeControl() ⇒ [ControlDock](#OpenSeadragon.ControlDock)
+222: ....+ navigator.clearControls() ⇒ [ControlDock](#OpenSeadragon.ControlDock)
+223: ..- OpenSeadragon.Point
+224: ....+ new Point([x], [y])
+225: ....+ point.x : Number
+226: ....+ point.y : Number
+227: ....+ point.clone() ⇒ [Point](#OpenSeadragon.Point)
+228: ....+ point.plus(point) ⇒ [Point](#OpenSeadragon.Point)
+229: ....+ point.minus(point) ⇒ [Point](#OpenSeadragon.Point)
+230: ....+ point.times(factor) ⇒ [Point](#OpenSeadragon.Point)
+231: ....+ point.divide(factor) ⇒ [Point](#OpenSeadragon.Point)
+232: ....+ point.negate() ⇒ [Point](#OpenSeadragon.Point)
+233: ....+ point.distanceTo(point) ⇒ Number
+234: ....+ point.squaredDistanceTo(point) ⇒ Number
+235: ....+ point.apply(func) ⇒ [Point](#OpenSeadragon.Point)
+236: ....+ point.equals(point) ⇒ Boolean
+237: ....+ point.rotate(degress, [pivot]) ⇒ [Point](#OpenSeadragon.Point)
+238: ....+ point.toString() ⇒ String
+239: ..- OpenSeadragon.TileSource ⇐ [EventSource](#OpenSeadragon.EventSource)
+240: ....+ new TileSource(options)
+241: ....+ tileSource.aspectRatio : Number
+242: ....+ tileSource.dimensions : [Point](#OpenSeadragon.Point)
+243: ....+ tileSource.tileOverlap : Number
+244: ....+ tileSource.minLevel : Number
+245: ....+ tileSource.maxLevel : Number
+246: ....+ tileSource.ready : Boolean
+247: ....+ tileSource.getTileWidth(level)
+248: ....+ tileSource.getTileHeight(level)
+249: ....+ tileSource.getLevelScale(level)
+250: ....+ tileSource.getNumTiles(level)
+251: ....+ tileSource.getPixelRatio(level)
+252: ....+ tileSource.getClosestLevel() ⇒ Number
+253: ....+ tileSource.getTileAtPoint(level, point)
+254: ....+ tileSource.getTileBounds(level, x, y)
+255: ....+ tileSource.getImageInfo(url)
+256: ....+ tileSource.supports(data, url) ⇒ Boolean
+257: ....+ tileSource.configure(data, url) ⇒ Object
+258: ....+ tileSource.getTileUrl(level, x, y)
+259: ....+ tileSource.getTileAjaxHeaders(level, x, y) ⇒ Object
+260: ....+ tileSource.tileExists(level, x, y)
+261: ....+ tileSource.addOnceHandler(eventName, handler, [userData], [times])
+262: ....+ tileSource.addHandler(eventName, handler, [userData])
+263: ....+ tileSource.removeHandler(eventName, handler)
+264: ....+ tileSource.removeAllHandlers(eventName)
+265: ....+ tileSource.getHandler(eventName)
+266: ....+ tileSource.raiseEvent(eventName, eventArgs)
+267: ....+ "open-failed"
+268: ....+ "ready"
+269: ..- OpenSeadragon.DziTileSource ⇐ [TileSource](#OpenSeadragon.TileSource)
+270: ....+ new DziTileSource(width, height, tileSize, tileOverlap, tilesUrl, fileFormat,
+displayRects)
+271: ....+ dziTileSource.aspectRatio : Number
+272: ....+ dziTileSource.dimensions : [Point](#OpenSeadragon.Point)
+273: ....+ dziTileSource.tileOverlap : Number
+274: ....+ dziTileSource.minLevel : Number
+275: ....+ dziTileSource.maxLevel : Number
+276: ....+ dziTileSource.ready : Boolean
+277: ....+ dziTileSource.supports(data, optional)
+278: ....+ dziTileSource.configure(data, url) ⇒ Object
+279: ....+ dziTileSource.getTileUrl(level, x, y)
+280: ....+ dziTileSource.tileExists(level, x, y)
+281: ....+ dziTileSource.getTileWidth(level)
+282: ....+ dziTileSource.getTileHeight(level)
+283: ....+ dziTileSource.getLevelScale(level)
+284: ....+ dziTileSource.getNumTiles(level)
+285: ....+ dziTileSource.getPixelRatio(level)
+286: ....+ dziTileSource.getClosestLevel() ⇒ Number
+287: ....+ dziTileSource.getTileAtPoint(level, point)
+288: ....+ dziTileSource.getTileBounds(level, x, y)
+289: ....+ dziTileSource.getImageInfo(url)
+290: ....+ dziTileSource.getTileAjaxHeaders(level, x, y) ⇒ Object
+291: ....+ dziTileSource.addOnceHandler(eventName, handler, [userData], [times])
+292: ....+ dziTileSource.addHandler(eventName, handler, [userData])
+293: ....+ dziTileSource.removeHandler(eventName, handler)
+294: ....+ dziTileSource.removeAllHandlers(eventName)
+295: ....+ dziTileSource.getHandler(eventName)
+296: ....+ dziTileSource.raiseEvent(eventName, eventArgs)
+297: ..- OpenSeadragon.IIIFTileSource ⇐ [TileSource](#OpenSeadragon.TileSource)
+298: ....+ iiifTileSource.aspectRatio : Number
+299: ....+ iiifTileSource.dimensions : [Point](#OpenSeadragon.Point)
+300: ....+ iiifTileSource.tileOverlap : Number
+301: ....+ iiifTileSource.minLevel : Number
+302: ....+ iiifTileSource.maxLevel : Number
+303: ....+ iiifTileSource.ready : Boolean
+304: ....+ iiifTileSource.supports(data, optional)
+305: ....+ iiifTileSource.configure(data)
+306: ....+ iiifTileSource.getTileWidth(level)
+307: ....+ iiifTileSource.getTileHeight(level)
+308: ....+ iiifTileSource.getLevelScale(level)
+309: ....+ iiifTileSource.getNumTiles(level)
+310: ....+ iiifTileSource.getTileAtPoint(level, point)
+311: ....+ iiifTileSource.getTileUrl(level, x, y)
+312: ....+ iiifTileSource.getPixelRatio(level)
+313: ....+ iiifTileSource.getClosestLevel() ⇒ Number
+314: ....+ iiifTileSource.getTileBounds(level, x, y)
+315: ....+ iiifTileSource.getImageInfo(url)
+316: ....+ iiifTileSource.getTileAjaxHeaders(level, x, y) ⇒ Object
+317: ....+ iiifTileSource.tileExists(level, x, y)
+318: ....+ iiifTileSource.addOnceHandler(eventName, handler, [userData], [times])
+319: ....+ iiifTileSource.addHandler(eventName, handler, [userData])
+320: ....+ iiifTileSource.removeHandler(eventName, handler)
+321: ....+ iiifTileSource.removeAllHandlers(eventName)
+322: ....+ iiifTileSource.getHandler(eventName)
+323: ....+ iiifTileSource.raiseEvent(eventName, eventArgs)
+324: ..- OpenSeadragon.OsmTileSource ⇐ [TileSource](#OpenSeadragon.TileSource)
+325: ....+ new OsmTileSource(width, height, tileSize, tileOverlap, tilesUrl)
+326: ....+ osmTileSource.aspectRatio : Number
+327: ....+ osmTileSource.dimensions : [Point](#OpenSeadragon.Point)
+328: ....+ osmTileSource.tileOverlap : Number
+329: ....+ osmTileSource.minLevel : Number
+330: ....+ osmTileSource.maxLevel : Number
+331: ....+ osmTileSource.ready : Boolean
+332: ....+ osmTileSource.supports(data, optional)
+333: ....+ osmTileSource.configure(data, url) ⇒ Object
+334: ....+ osmTileSource.getTileUrl(level, x, y)
+335: ....+ osmTileSource.getTileWidth(level)
+336: ....+ osmTileSource.getTileHeight(level)
+337: ....+ osmTileSource.getLevelScale(level)
+338: ....+ osmTileSource.getNumTiles(level)
+339: ....+ osmTileSource.getPixelRatio(level)
+340: ....+ osmTileSource.getClosestLevel() ⇒ Number
+341: ....+ osmTileSource.getTileAtPoint(level, point)
+342: ....+ osmTileSource.getTileBounds(level, x, y)
+343: ....+ osmTileSource.getImageInfo(url)
+344: ....+ osmTileSource.getTileAjaxHeaders(level, x, y) ⇒ Object
+345: ....+ osmTileSource.tileExists(level, x, y)
+346: ....+ osmTileSource.addOnceHandler(eventName, handler, [userData], [times])
+347: ....+ osmTileSource.addHandler(eventName, handler, [userData])
+348: ....+ osmTileSource.removeHandler(eventName, handler)
+349: ....+ osmTileSource.removeAllHandlers(eventName)
+350: ....+ osmTileSource.getHandler(eventName)
+351: ....+ osmTileSource.raiseEvent(eventName, eventArgs)
+352: ..- OpenSeadragon.TmsTileSource ⇐ [TileSource](#OpenSeadragon.TileSource)
+353: ....+ new TmsTileSource(width, height, tileSize, tileOverlap, tilesUrl)
+354: ....+ tmsTileSource.aspectRatio : Number
+355: ....+ tmsTileSource.dimensions : [Point](#OpenSeadragon.Point)
+356: ....+ tmsTileSource.tileOverlap : Number
+357: ....+ tmsTileSource.minLevel : Number
+358: ....+ tmsTileSource.maxLevel : Number
+359: ....+ tmsTileSource.ready : Boolean
+360: ....+ tmsTileSource.supports(data, optional)
+361: ....+ tmsTileSource.configure(data, url) ⇒ Object
+362: ....+ tmsTileSource.getTileUrl(level, x, y)
+363: ....+ tmsTileSource.getTileWidth(level)
+364: ....+ tmsTileSource.getTileHeight(level)
+365: ....+ tmsTileSource.getLevelScale(level)
+366: ....+ tmsTileSource.getNumTiles(level)
+367: ....+ tmsTileSource.getPixelRatio(level)
+368: ....+ tmsTileSource.getClosestLevel() ⇒ Number
+369: ....+ tmsTileSource.getTileAtPoint(level, point)
+370: ....+ tmsTileSource.getTileBounds(level, x, y)
+371: ....+ tmsTileSource.getImageInfo(url)
+372: ....+ tmsTileSource.getTileAjaxHeaders(level, x, y) ⇒ Object
+373: ....+ tmsTileSource.tileExists(level, x, y)
+374: ....+ tmsTileSource.addOnceHandler(eventName, handler, [userData], [times])
+375: ....+ tmsTileSource.addHandler(eventName, handler, [userData])
+376: ....+ tmsTileSource.removeHandler(eventName, handler)
+377: ....+ tmsTileSource.removeAllHandlers(eventName)
+378: ....+ tmsTileSource.getHandler(eventName)
+379: ....+ tmsTileSource.raiseEvent(eventName, eventArgs)
+380: ..- OpenSeadragon.ZoomifyTileSource ⇐ [TileSource](#OpenSeadragon.TileSource)
+381: ....+ new ZoomifyTileSource(width, height, tileSize, tilesUrl)
+382: ....+ zoomifyTileSource.aspectRatio : Number
+383: ....+ zoomifyTileSource.dimensions : [Point](#OpenSeadragon.Point)
+384: ....+ zoomifyTileSource.tileOverlap : Number
+385: ....+ zoomifyTileSource.minLevel : Number
+386: ....+ zoomifyTileSource.maxLevel : Number
+387: ....+ zoomifyTileSource.ready : Boolean
+388: ....+ zoomifyTileSource.supports(data, optional)
+389: ....+ zoomifyTileSource.configure(data, url) ⇒ Object
+390: ....+ zoomifyTileSource.getTileUrl(level, x, y)
+391: ....+ zoomifyTileSource.getTileWidth(level)
+392: ....+ zoomifyTileSource.getTileHeight(level)
+393: ....+ zoomifyTileSource.getLevelScale(level)
+394: ....+ zoomifyTileSource.getNumTiles(level)
+395: ....+ zoomifyTileSource.getPixelRatio(level)
+396: ....+ zoomifyTileSource.getClosestLevel() ⇒ Number
+397: ....+ zoomifyTileSource.getTileAtPoint(level, point)
+398: ....+ zoomifyTileSource.getTileBounds(level, x, y)
+399: ....+ zoomifyTileSource.getImageInfo(url)
+400: ....+ zoomifyTileSource.getTileAjaxHeaders(level, x, y) ⇒ Object
+401: ....+ zoomifyTileSource.tileExists(level, x, y)
+402: ....+ zoomifyTileSource.addOnceHandler(eventName, handler, [userData], [times])
+403: ....+ zoomifyTileSource.addHandler(eventName, handler, [userData])
+404: ....+ zoomifyTileSource.removeHandler(eventName, handler)
+405: ....+ zoomifyTileSource.removeAllHandlers(eventName)
+406: ....+ zoomifyTileSource.getHandler(eventName)
+407: ....+ zoomifyTileSource.raiseEvent(eventName, eventArgs)
+408: ..- OpenSeadragon.LegacyTileSource ⇐ [TileSource](#OpenSeadragon.TileSource)
+409: ....+ new LegacyTileSource(levels)
+410: ....+ legacyTileSource.aspectRatio : Number
+411: ....+ legacyTileSource.dimensions : [Point](#OpenSeadragon.Point)
+412: ....+ legacyTileSource.tileOverlap : Number
+413: ....+ legacyTileSource.minLevel : Number
+414: ....+ legacyTileSource.maxLevel : Number
+415: ....+ legacyTileSource.ready : Boolean
+416: ....+ legacyTileSource.supports(data, optional)
+417: ....+ legacyTileSource.configure(configuration, dataUrl) ⇒ Object
+418: ....+ legacyTileSource.getLevelScale(level)
+419: ....+ legacyTileSource.getNumTiles(level)
+420: ....+ legacyTileSource.getTileUrl(level, x, y)
+421: ....+ legacyTileSource.getTileWidth(level)
+422: ....+ legacyTileSource.getTileHeight(level)
+423: ....+ legacyTileSource.getPixelRatio(level)
+424: ....+ legacyTileSource.getClosestLevel() ⇒ Number
+425: ....+ legacyTileSource.getTileAtPoint(level, point)
+426: ....+ legacyTileSource.getTileBounds(level, x, y)
+427: ....+ legacyTileSource.getImageInfo(url)
+428: ....+ legacyTileSource.getTileAjaxHeaders(level, x, y) ⇒ Object
+429: ....+ legacyTileSource.tileExists(level, x, y)
+430: ....+ legacyTileSource.addOnceHandler(eventName, handler, [userData], [times])
+431: ....+ legacyTileSource.addHandler(eventName, handler, [userData])
+432: ....+ legacyTileSource.removeHandler(eventName, handler)
+433: ....+ legacyTileSource.removeAllHandlers(eventName)
+434: ....+ legacyTileSource.getHandler(eventName)
+435: ....+ legacyTileSource.raiseEvent(eventName, eventArgs)
+436: ..- OpenSeadragon.ImageTileSource ⇐ [TileSource](#OpenSeadragon.TileSource)
+437: ....+ new ImageTileSource(options)
+438: ....+ imageTileSource.aspectRatio : Number
+439: ....+ imageTileSource.dimensions : [Point](#OpenSeadragon.Point)
+440: ....+ imageTileSource.tileOverlap : Number
+441: ....+ imageTileSource.minLevel : Number
+442: ....+ imageTileSource.maxLevel : Number
+443: ....+ imageTileSource.ready : Boolean
+444: ....+ imageTileSource.supports(data, optional)
+445: ....+ imageTileSource.configure(options, dataUrl) ⇒ Object
+446: ....+ imageTileSource.getImageInfo(url)
+447: ....+ imageTileSource.getLevelScale(level)
+448: ....+ imageTileSource.getNumTiles(level)
+449: ....+ imageTileSource.getTileUrl(level, x, y)
+450: ....+ imageTileSource.getContext2D(level, x, y)
+451: ....+ imageTileSource.getTileWidth(level)
+452: ....+ imageTileSource.getTileHeight(level)
+453: ....+ imageTileSource.getPixelRatio(level)
+454: ....+ imageTileSource.getClosestLevel() ⇒ Number
+455: ....+ imageTileSource.getTileAtPoint(level, point)
+456: ....+ imageTileSource.getTileBounds(level, x, y)
+457: ....+ imageTileSource.getTileAjaxHeaders(level, x, y) ⇒ Object
+458: ....+ imageTileSource.tileExists(level, x, y)
+459: ....+ imageTileSource.addOnceHandler(eventName, handler, [userData], [times])
+460: ....+ imageTileSource.addHandler(eventName, handler, [userData])
+461: ....+ imageTileSource.removeHandler(eventName, handler)
+462: ....+ imageTileSource.removeAllHandlers(eventName)
+463: ....+ imageTileSource.getHandler(eventName)
+464: ....+ imageTileSource.raiseEvent(eventName, eventArgs)
+465: ..- OpenSeadragon.Button ⇐ [EventSource](#OpenSeadragon.EventSource)
+466: ....+ new Button(options)
+467: ....+ button.fadeDelay : Number
+468: ....+ button.fadeLength : Number
+469: ....+ button.element : Element
+470: ....+ button.currentState : [ButtonState](#OpenSeadragon.ButtonState)
+471: ....+ button.tracker : [MouseTracker](#OpenSeadragon.MouseTracker)
+472: ....+ button.notifyGroupEnter()
+473: ....+ button.notifyGroupExit()
+474: ....+ button.disable()
+475: ....+ button.enable()
+476: ....+ button.addOnceHandler(eventName, handler, [userData], [times])
+477: ....+ button.addHandler(eventName, handler, [userData])
+478: ....+ button.removeHandler(eventName, handler)
+479: ....+ button.removeAllHandlers(eventName)
+480: ....+ button.getHandler(eventName)
+481: ....+ button.raiseEvent(eventName, eventArgs)
+482: ....+ "enter"
+483: ....+ "focus"
+484: ....+ "exit"
+485: ....+ "blur"
+486: ....+ "press"
+487: ....+ "release"
+488: ....+ "click"
+489: ..- OpenSeadragon.ButtonGroup
+490: ....+ new ButtonGroup(options)
+491: ....+ buttonGroup.buttons : Array
+492: ....+ buttonGroup.element : Element
+493: ....+ buttonGroup.tracker : [MouseTracker](#OpenSeadragon.MouseTracker)
+494: ..- OpenSeadragon.Rect
+495: ....+ new Rect([x], [y], [width], [height], [degrees])
+496: ....+ rect.x : Number
+497: ....+ rect.y : Number
+498: ....+ rect.width : Number
+499: ....+ rect.height : Number
+500: ....+ rect.clone() ⇒ [Rect](#OpenSeadragon.Rect)
+501: ....+ rect.getAspectRatio() ⇒ Number
+502: ....+ rect.getTopLeft() ⇒ [Point](#OpenSeadragon.Point)
+503: ....+ rect.getBottomRight() ⇒ [Point](#OpenSeadragon.Point)
+504: ....+ rect.getTopRight() ⇒ [Point](#OpenSeadragon.Point)
+505: ....+ rect.getBottomLeft() ⇒ [Point](#OpenSeadragon.Point)
+506: ....+ rect.getCenter() ⇒ [Point](#OpenSeadragon.Point)
+507: ....+ rect.getSize() ⇒ [Point](#OpenSeadragon.Point)
+508: ....+ rect.equals(rectangle) ⇒ Boolean
+509: ....+ rect.times(factor) ⇒ [Rect](#OpenSeadragon.Rect)
+510: ....+ rect.translate(delta) ⇒ [Rect](#OpenSeadragon.Rect)
+511: ....+ rect.union(rect) ⇒ [Rect](#OpenSeadragon.Rect)
+512: ....+ rect.intersection(rect) ⇒ [Rect](#OpenSeadragon.Rect)
+513: ....+ rect.rotate(degrees, [pivot]) ⇒ [Rect](#OpenSeadragon.Rect)
+514: ....+ rect.getBoundingBox() ⇒ [Rect](#OpenSeadragon.Rect)
+515: ....+ rect.getIntegerBoundingBox() ⇒ [Rect](#OpenSeadragon.Rect)
+516: ....+ rect.containsPoint(point, [epsilon]) ⇒ Boolean
+517: ....+ rect.toString() ⇒ String
+518: ..- OpenSeadragon.ReferenceStrip
+519: ....+ new ReferenceStrip(options)
+520: ....+ referenceStrip.setFocus()
+521: ....+ referenceStrip.update()
+522: ..- OpenSeadragon.DisplayRect ⇐ [Rect](#OpenSeadragon.Rect)
+523: ....+ new DisplayRect(x, y, width, height, minLevel, maxLevel)
+524: ....+ displayRect.minLevel : Number
+525: ....+ displayRect.maxLevel : Number
+526: ....+ displayRect.x : Number
+527: ....+ displayRect.y : Number
+528: ....+ displayRect.width : Number
+529: ....+ displayRect.height : Number
+530: ....+ displayRect.clone() ⇒ [Rect](#OpenSeadragon.Rect)
+531: ....+ displayRect.getAspectRatio() ⇒ Number
+532: ....+ displayRect.getTopLeft() ⇒ [Point](#OpenSeadragon.Point)
+533: ....+ displayRect.getBottomRight() ⇒ [Point](#OpenSeadragon.Point)
+534: ....+ displayRect.getTopRight() ⇒ [Point](#OpenSeadragon.Point)
+535: ....+ displayRect.getBottomLeft() ⇒ [Point](#OpenSeadragon.Point)
+536: ....+ displayRect.getCenter() ⇒ [Point](#OpenSeadragon.Point)
+537: ....+ displayRect.getSize() ⇒ [Point](#OpenSeadragon.Point)
+538: ....+ displayRect.equals(rectangle) ⇒ Boolean
+539: ....+ displayRect.times(factor) ⇒ [Rect](#OpenSeadragon.Rect)
+540: ....+ displayRect.translate(delta) ⇒ [Rect](#OpenSeadragon.Rect)
+541: ....+ displayRect.union(rect) ⇒ [Rect](#OpenSeadragon.Rect)
+542: ....+ displayRect.intersection(rect) ⇒ [Rect](#OpenSeadragon.Rect)
+543: ....+ displayRect.rotate(degrees, [pivot]) ⇒ [Rect](#OpenSeadragon.Rect)
+544: ....+ displayRect.getBoundingBox() ⇒ [Rect](#OpenSeadragon.Rect)
+545: ....+ displayRect.getIntegerBoundingBox() ⇒ [Rect](#OpenSeadragon.Rect)
+546: ....+ displayRect.containsPoint(point, [epsilon]) ⇒ Boolean
+547: ....+ displayRect.toString() ⇒ String
+548: ..- OpenSeadragon.Spring
+549: ....+ new Spring(options)
+550: ....+ spring.springStiffness : Number
+551: ....+ spring.animationTime : Number
+552: ....+ spring.current : Object
+553: ....+ spring.start : Object
+554: ....+ spring.target : Object
+555: ....+ spring.resetTo(target)
+556: ....+ spring.springTo(target)
+557: ....+ spring.shiftBy(delta)
+558: ....+ spring.update() ⇒
+559: ....+ spring.isAtTargetValue() ⇒ Boolean
+560: ..- OpenSeadragon.ImageLoader
+561: ....+ new ImageLoader(options)
+562: ....+ imageLoader.addJob(options)
+563: ....+ imageLoader.clear()
+564: ..- OpenSeadragon.Tile
+565: ....+ new Tile(level, x, y, bounds, exists, url, context2D, loadWithAjax, ajaxHeaders)
+566: ....+ tile.level : Number
+567: ....+ tile.x : Number
+568: ....+ tile.y : Number
+569: ....+ tile.bounds : [Rect](#OpenSeadragon.Rect)
+570: ....+ tile.exists : Boolean
+571: ....+ tile.url : String
+572: ....+ tile.context2D : CanvasRenderingContext2D
+573: ....+ tile.loadWithAjax : Boolean
+574: ....+ tile.ajaxHeaders : Object
+575: ....+ tile.cacheKey : String
+576: ....+ tile.loaded : Boolean
+577: ....+ tile.loading : Boolean
+578: ....+ tile.element : Element
+579: ....+ tile.imgElement : Element
+580: ....+ tile.image : Object
+581: ....+ tile.style : String
+582: ....+ tile.position : [Point](#OpenSeadragon.Point)
+583: ....+ tile.size : [Point](#OpenSeadragon.Point)
+584: ....+ tile.blendStart : Number
+585: ....+ tile.opacity : Number
+586: ....+ tile.visibility : Number
+587: ....+ tile.beingDrawn : Boolean
+588: ....+ tile.lastTouchTime : Number
+589: ....+ tile.isRightMost : Boolean
+590: ....+ tile.isBottomMost : Boolean
+591: ....+ tile.toString() ⇒ String
+592: ....+ tile.drawHTML(container)
+593: ....+ tile.drawCanvas(context, drawingHandler, [scale], [translate])
+594: ....+ tile.getScaleForEdgeSmoothing() ⇒ Float
+595: ....+ tile.getTranslationForEdgeSmoothing([scale]) ⇒ [Point](#OpenSeadragon.Point)
+596: ....+ tile.unload()
+597: ..- OpenSeadragon.Overlay
+598: ....+ new Overlay(options)
+599: ....+ overlay.adjust(position, size)
+600: ....+ overlay.destroy()
+601: ....+ overlay.drawHTML(container)
+602: ....+ overlay.update(location, placement)
+603: ....+ overlay.getBounds(viewport) ⇒ [Rect](#OpenSeadragon.Rect)
+604: ....+ Overlay.OnDrawCallback : function
+605: ..- OpenSeadragon.Drawer
+606: ....+ new Drawer(options)
+607: ....+ drawer.container : Element
+608: ....+ drawer.canvas : Element
+609: ....+ drawer.context : Object
+610: ....+ ~~drawer.element : Element~~
+611: ....+ drawer.setOpacity(opacity) ⇒ [Drawer](#OpenSeadragon.Drawer)
+612: ....+ drawer.getOpacity() ⇒ Number
+613: ....+ drawer.canRotate() ⇒ Boolean
+614: ....+ drawer.destroy()
+615: ....+ drawer.clear()
+616: ....+ drawer.viewportToDrawerRectangle(rectangle) ⇒ [Rect](#OpenSeadragon.Rect)
+617: ....+ drawer.drawTile(tile, drawingHandler, useSketch, [scale], [translate])
+618: ....+ drawer.blendSketch(options)
+619: ....+ drawer.getCanvasSize(sketch) ⇒ [Point](#OpenSeadragon.Point)
+620: ..- OpenSeadragon.Viewport
+621: ....+ new Viewport(options)
+622: ....+ viewport.resetContentSize(contentSize) ⇒ [Viewport](#OpenSeadragon.Viewport)
+623: ....+ viewport.getHomeZoom() ⇒ Number
+624: ....+ viewport.getHomeBounds() ⇒ [Rect](#OpenSeadragon.Rect)
+625: ....+ viewport.getHomeBoundsNoRotate() ⇒ [Rect](#OpenSeadragon.Rect)
+626: ....+ viewport.goHome(immediately)
+627: ....+ viewport.getMinZoom()
+628: ....+ viewport.getMaxZoom()
+629: ....+ viewport.getAspectRatio()
+630: ....+ viewport.getContainerSize() ⇒ [Point](#OpenSeadragon.Point)
+631: ....+ viewport.getMargins() ⇒ Object
+632: ....+ viewport.setMargins(margins)
+633: ....+ viewport.getBounds(current) ⇒ [Rect](#OpenSeadragon.Rect)
+634: ....+ viewport.getBoundsNoRotate(current) ⇒ [Rect](#OpenSeadragon.Rect)
+635: ....+ viewport.getBoundsWithMargins(current) ⇒ [Rect](#OpenSeadragon.Rect)
+636: ....+ viewport.getBoundsNoRotateWithMargins(current) ⇒ [Rect](#OpenSeadragon.Rect)
+637: ....+ viewport.getCenter(current)
+638: ....+ viewport.getZoom(current)
+639: ....+ viewport.applyConstraints([immediately]) ⇒
+[Viewport](#OpenSeadragon.Viewport)
+640: ....+ viewport.ensureVisible([immediately]) ⇒ [Viewport](#OpenSeadragon.Viewport)
+641: ....+ viewport.fitBounds(bounds, [immediately]) ⇒
+[Viewport](#OpenSeadragon.Viewport)
+642: ....+ viewport.fitBoundsWithConstraints(bounds, [immediately]) ⇒
+[Viewport](#OpenSeadragon.Viewport)
+643: ....+ viewport.fitVertically(immediately) ⇒ [Viewport](#OpenSeadragon.Viewport)
+644: ....+ viewport.fitHorizontally(immediately) ⇒ [Viewport](#OpenSeadragon.Viewport)
+645: ....+ viewport.getConstrainedBounds(current) ⇒ [Viewport](#OpenSeadragon.Viewport)
+646: ....+ viewport.panBy(delta, immediately) ⇒ [Viewport](#OpenSeadragon.Viewport)
+647: ....+ viewport.panTo(center, immediately) ⇒ [Viewport](#OpenSeadragon.Viewport)
+648: ....+ viewport.zoomBy() ⇒ [Viewport](#OpenSeadragon.Viewport)
+649: ....+ viewport.zoomTo(zoom, [refPoint], [immediately]) ⇒
+[Viewport](#OpenSeadragon.Viewport)
+650: ....+ viewport.setRotation() ⇒ [Viewport](#OpenSeadragon.Viewport)
+651: ....+ viewport.getRotation() ⇒ Number
+652: ....+ viewport.resize() ⇒ [Viewport](#OpenSeadragon.Viewport)
+653: ....+ viewport.update() ⇒ Boolean
+654: ....+ viewport.deltaPixelsFromPointsNoRotate(deltaPoints, [current]) ⇒
+[Point](#OpenSeadragon.Point)
+655: ....+ viewport.deltaPixelsFromPoints(deltaPoints, [current]) ⇒
+[Point](#OpenSeadragon.Point)
+656: ....+ viewport.deltaPointsFromPixelsNoRotate(deltaPixels, [current]) ⇒
+[Point](#OpenSeadragon.Point)
+657: ....+ viewport.deltaPointsFromPixels(deltaPixels, [current]) ⇒
+[Point](#OpenSeadragon.Point)
+658: ....+ viewport.pixelFromPointNoRotate(point, [current]) ⇒
+[Point](#OpenSeadragon.Point)
+659: ....+ viewport.pixelFromPoint(point, [current]) ⇒ [Point](#OpenSeadragon.Point)
+660: ....+ viewport.pointFromPixelNoRotate(pixel, [current]) ⇒
+[Point](#OpenSeadragon.Point)
+661: ....+ viewport.pointFromPixel(pixel, [current]) ⇒ [Point](#OpenSeadragon.Point)
+662: ....+ viewport.viewportToImageCoordinates(viewerX, [viewerY]) ⇒
+[Point](#OpenSeadragon.Point)
+663: ....+ viewport.imageToViewportCoordinates(imageX, [imageY]) ⇒
+[Point](#OpenSeadragon.Point)
+664: ....+ viewport.imageToViewportRectangle(imageX, [imageY], [pixelWidth], [pixelHeight]) ⇒
+[Rect](#OpenSeadragon.Rect)
+665: ....+ viewport.viewportToImageRectangle(viewerX, [viewerY], [pointWidth], [pointHeight])
+666: ....+ viewport.viewerElementToImageCoordinates(pixel) ⇒
+[Point](#OpenSeadragon.Point)
+667: ....+ viewport.imageToViewerElementCoordinates(pixel) ⇒
+[Point](#OpenSeadragon.Point)
+668: ....+ viewport.windowToImageCoordinates(pixel) ⇒ [Point](#OpenSeadragon.Point)
+669: ....+ viewport.imageToWindowCoordinates(pixel) ⇒ [Point](#OpenSeadragon.Point)
+670: ....+ viewport.viewerElementToViewportCoordinates(pixel) ⇒
+[Point](#OpenSeadragon.Point)
+671: ....+ viewport.viewportToViewerElementCoordinates(point) ⇒
+[Point](#OpenSeadragon.Point)
+672: ....+ viewport.viewerElementToViewportRectangle(rectangle) ⇒
+[Rect](#OpenSeadragon.Rect)
+673: ....+ viewport.viewportToViewerElementRectangle(rectangle) ⇒
+[Rect](#OpenSeadragon.Rect)
+674: ....+ viewport.windowToViewportCoordinates(pixel) ⇒ [Point](#OpenSeadragon.Point)
+675: ....+ viewport.viewportToWindowCoordinates(point) ⇒ [Point](#OpenSeadragon.Point)
+676: ....+ viewport.viewportToImageZoom(viewportZoom) ⇒ Number
+677: ....+ viewport.imageToViewportZoom(imageZoom) ⇒ Number
+678: ..- OpenSeadragon.TiledImage ⇐ [EventSource](#OpenSeadragon.EventSource)
+679: ....+ new TiledImage(options)
+680: ....+ tiledImage.needsDraw() ⇒ Boolean
+681: ....+ tiledImage.getFullyLoaded() ⇒ Boolean
+682: ....+ tiledImage.reset()
+683: ....+ tiledImage.update() ⇒ Boolean
+684: ....+ tiledImage.draw()
+685: ....+ tiledImage.destroy()
+686: ....+ tiledImage.getBounds([current]) ⇒ [Rect](#OpenSeadragon.Rect)
+687: ....+ tiledImage.getBoundsNoRotate([current]) ⇒ [Rect](#OpenSeadragon.Rect)
+688: ....+ tiledImage.getClippedBounds([current]) ⇒ $.Rect
+689: ....+ tiledImage.getContentSize() ⇒ [Point](#OpenSeadragon.Point)
+690: ....+ tiledImage.viewportToImageCoordinates(viewerX, [viewerY], [current]) ⇒
+[Point](#OpenSeadragon.Point)
+691: ....+ tiledImage.imageToViewportCoordinates(imageX, [imageY], [current]) ⇒
+[Point](#OpenSeadragon.Point)
+692: ....+ tiledImage.imageToViewportRectangle(imageX, [imageY], [pixelWidth], [pixelHeight],
+[current]) ⇒ [Rect](#OpenSeadragon.Rect)
+693: ....+ tiledImage.viewportToImageRectangle(viewerX, [viewerY], [pointWidth], [pointHeight],
+[current]) ⇒ [Rect](#OpenSeadragon.Rect)
+694: ....+ tiledImage.viewerElementToImageCoordinates(pixel) ⇒
+[Point](#OpenSeadragon.Point)
+695: ....+ tiledImage.imageToViewerElementCoordinates(pixel) ⇒
+[Point](#OpenSeadragon.Point)
+696: ....+ tiledImage.windowToImageCoordinates(pixel) ⇒ [Point](#OpenSeadragon.Point)
+697: ....+ tiledImage.imageToWindowCoordinates(pixel) ⇒ [Point](#OpenSeadragon.Point)
+698: ....+ tiledImage.viewportToImageZoom(viewportZoom) ⇒ Number
+699: ....+ tiledImage.imageToViewportZoom(imageZoom) ⇒ Number
+700: ....+ tiledImage.setPosition(position, [immediately])
+701: ....+ tiledImage.setWidth(width, [immediately])
+702: ....+ tiledImage.setHeight(height, [immediately])
+703: ....+ tiledImage.fitBounds(bounds, [anchor], [immediately])
+704: ....+ tiledImage.getClip() ⇒ [Rect](#OpenSeadragon.Rect) \| null
+705: ....+ tiledImage.setClip(newClip)
+706: ....+ tiledImage.getOpacity() ⇒ Number
+707: ....+ tiledImage.setOpacity(opacity)
+708: ....+ tiledImage.getPreload() ⇒ Boolean
+709: ....+ tiledImage.setPreload()
+710: ....+ tiledImage.getRotation([current]) ⇒ Number
+711: ....+ tiledImage.setRotation(degrees, [immediately])
+712: ....+ tiledImage.getCompositeOperation() ⇒ String
+713: ....+ tiledImage.setCompositeOperation(compositeOperation)
+714: ....+ tiledImage.addOnceHandler(eventName, handler, [userData], [times])
+715: ....+ tiledImage.addHandler(eventName, handler, [userData])
+716: ....+ tiledImage.removeHandler(eventName, handler)
+717: ....+ tiledImage.removeAllHandlers(eventName)
+718: ....+ tiledImage.getHandler(eventName)
+719: ....+ tiledImage.raiseEvent(eventName, eventArgs)
+720: ....+ "fully-loaded-change"
+721: ....+ "clip-change"
+722: ....+ "opacity-change"
+723: ....+ "composite-operation-change"
+724: ....+ "bounds-change"
+725: ..- OpenSeadragon.TileCache
+726: ....+ new TileCache(options)
+727: ....+ tileCache.numTilesLoaded() ⇒ Number
+728: ....+ tileCache.cacheTile(options)
+729: ....+ tileCache.clearTilesFor(tiledImage)
+730: ..- OpenSeadragon.World ⇐ [EventSource](#OpenSeadragon.EventSource)
+731: ....+ new World(options)
+732: ....+ world.addItem(item)
+733: ....+ world.getItemAt(index) ⇒ [TiledImage](#OpenSeadragon.TiledImage)
+734: ....+ world.getIndexOfItem(item) ⇒ Number
+735: ....+ world.getItemCount() ⇒ Number
+736: ....+ world.setItemIndex(item, index)
+737: ....+ world.removeItem(item)
+738: ....+ world.removeAll()
+739: ....+ world.resetItems()
+740: ....+ world.update()
+741: ....+ world.draw()
+742: ....+ world.needsDraw() ⇒ Boolean
+743: ....+ world.getHomeBounds() ⇒ [Rect](#OpenSeadragon.Rect)
+744: ....+ world.getContentFactor() ⇒ Number
+745: ....+ world.setAutoRefigureSizes([value])
+746: ....+ world.arrange(options)
+747: ....+ world.addOnceHandler(eventName, handler, [userData], [times])
+748: ....+ world.addHandler(eventName, handler, [userData])
+749: ....+ world.removeHandler(eventName, handler)
+750: ....+ world.removeAllHandlers(eventName)
+751: ....+ world.getHandler(eventName)
+752: ....+ world.raiseEvent(eventName, eventArgs)
+753: ....+ "add-item"
+754: ....+ "item-index-change"
+755: ....+ "metrics-change"
+756: ....+ "remove-item"
+757: ..- OpenSeadragon.version : Object
+758: ..- OpenSeadragon.supportsCanvas : Boolean
+759: ..- OpenSeadragon.pixelDensityRatio : Number
+760: ..- OpenSeadragon.DEFAULT_SETTINGS : Object
+761: ..- OpenSeadragon.BROWSERS : Object
+762: ..- OpenSeadragon.Browser : Object
+763: ..- OpenSeadragon.fullScreenApi : object
+764: ..- OpenSeadragon.ControlAnchor : Object
+765: ..- OpenSeadragon.Placement
+766: ..- OpenSeadragon.ButtonState : Object
+767: ..- OpenSeadragon.OverlayPlacement : Object
+768: ..- OpenSeadragon.OverlayRotationMode
+769: ..- OpenSeadragon.isFunction()
+770: ..- OpenSeadragon.isArray()
+771: ..- OpenSeadragon.isWindow()
+772: ..- OpenSeadragon.type()
+773: ..- OpenSeadragon.isPlainObject()
+774: ..- OpenSeadragon.isEmptyObject()
+775: ..- OpenSeadragon.extend()
+776: ..- OpenSeadragon.delegate(object, method) ⇒ function
+777: ..- OpenSeadragon.getElement(element) ⇒ Element
+778: ..- OpenSeadragon.getElementPosition(element) ⇒ [Point](#OpenSeadragon.Point)
+779: ..- OpenSeadragon.getElementOffset(element) ⇒ [Point](#OpenSeadragon.Point)
+780: ..- OpenSeadragon.getElementSize(element) ⇒ [Point](#OpenSeadragon.Point)
+781: ..- OpenSeadragon.getElementStyle(element) ⇒ CSSStyle
+782: ..- OpenSeadragon.getCssPropertyWithVendorPrefix(property) ⇒ String
+783: ..- OpenSeadragon.capitalizeFirstLetter(string) ⇒ String
+784: ..- OpenSeadragon.positiveModulo(number, modulo) ⇒ Number
+785: ..- OpenSeadragon.pointInElement(element, point) ⇒ Boolean
+786: ..- OpenSeadragon.getMousePosition([event]) ⇒ [Point](#OpenSeadragon.Point)
+787: ..- OpenSeadragon.getPageScroll() ⇒ [Point](#OpenSeadragon.Point)
+788: ..- OpenSeadragon.setPageScroll() ⇒ [Point](#OpenSeadragon.Point)
+789: ..- OpenSeadragon.getWindowSize() ⇒ [Point](#OpenSeadragon.Point)
+790: ..- OpenSeadragon.makeCenteredNode(element) ⇒ Element
+791: ..- OpenSeadragon.makeNeutralElement(tagName) ⇒ Element
+792: ..- OpenSeadragon.now()
+793: ..- OpenSeadragon.makeTransparentImage(src) ⇒ Element
+794: ..- OpenSeadragon.setElementOpacity(element, opacity, [usesAlpha])
+795: ..- OpenSeadragon.setElementTouchActionNone(element)
+796: ..- OpenSeadragon.addClass(element, className)
+797: ..- OpenSeadragon.indexOf(array, searchElement, [fromIndex]) ⇒ Number
+798: ..- OpenSeadragon.removeClass(element, className)
+799: ..- OpenSeadragon.addEvent(element, eventName, handler, [useCapture])
+800: ..- OpenSeadragon.removeEvent(element, eventName, handler, [useCapture])
+801: ..- OpenSeadragon.cancelEvent([event])
+802: ..- OpenSeadragon.stopEvent([event])
+803: ..- OpenSeadragon.createCallback(object, method, [args]) ⇒ function
+804: ..- OpenSeadragon.getUrlParameter(key) ⇒ String
+805: ..- OpenSeadragon.makeAjaxRequest(options) ⇒ XMLHttpRequest
+806: ..- OpenSeadragon.jsonp(options)
+807: ..- ~~OpenSeadragon.createFromDZI()~~
+808: ..- OpenSeadragon.parseXml(string) ⇒ Document
+809: ..- OpenSeadragon.parseJSON(string) ⇒ Object
+810: ..- OpenSeadragon.imageFormatSupported([extension]) ⇒ Boolean
+811: ..- OpenSeadragon.getString(property)
+812: ..- OpenSeadragon.setString(property, value)
+813: ..- OpenSeadragon.Options : Object
+814: ..- OpenSeadragon.GestureSettings : Object
+815: ..- OpenSeadragon.NavImages : Object
+816: ..- OpenSeadragon.EventHandler : function
+
+
