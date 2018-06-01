@@ -119,9 +119,12 @@ module.exports = function(grunt) {
             }
         },
         jsdoc2md: {
-            oneOutputFile: {
-              src: builtSourceUnMinified,
-              dest: buildRoot + 'doc.md'
+            withOptions: {
+                options: {
+                   'private': true
+                },
+                src: builtSourceUnMinified,
+                dest: buildRoot + 'doc.md',
             }
         }
     });
